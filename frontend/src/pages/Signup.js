@@ -9,7 +9,7 @@ const Signup = () => {
   const [fullName, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState(null); // Added state for role
+  const [role, setRole] = useState(null); 
 
   const currentDate = new Date();
   const hours = currentDate.getHours().toString().padStart(2, '0');
