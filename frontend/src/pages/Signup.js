@@ -23,8 +23,8 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    console.log(_id, fullName, email, password, role); // Include role in console.log
-    // await signup(_id, fullName, email, password);
+    console.log(_id, fullName, email, password, role); 
+   
   };
 
   return (
