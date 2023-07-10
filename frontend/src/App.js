@@ -8,6 +8,9 @@ import Quiz from './components/Quiz';
 import Result from './components/Result';
 import { CheckUserExist } from './helper/helper';
 import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+// import { UserAuthContextProvider } from './context/UseAuthContext';
 
 /** react routes */
 const router = createBrowserRouter([
@@ -17,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/quiz-home',
-    element: <Main></Main>,
+    element: <Main />,
   },
   {
     path: '/quiz',
@@ -35,12 +38,22 @@ const router = createBrowserRouter([
       </CheckUserExist>
     ),
   },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/signup',
+    element: <Signup />,
+  },
 ]);
 
 function App() {
   return (
     <>
+      {/* <UserAuthContextProvider> */}
       <RouterProvider router={router} />
+      {/* </UserAuthContextProvider> */}
     </>
   );
 }
