@@ -33,6 +33,20 @@ const Signup = () => {
           <input type="password" placeholder="Password" required />
           <a href="#">Forgot password?</a>
           <input type="submit" value="Login"/>
+
+
+          <div class="radio-buttons">
+                <label>
+                  <input type="radio" name="role" value="admin" required />
+                  Admin
+                </label>
+                <label>
+                  <input type="radio" name="role" value="user" required />
+                  User
+                </label>
+              </div>
+
+          
         </form>
       </div>
     </section>
