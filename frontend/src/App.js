@@ -1,5 +1,6 @@
 import './styles/App.css';
 
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 /** import components */
@@ -8,6 +9,7 @@ import Quiz from './components/Quiz';
 import Result from './components/Result';
 import { CheckUserExist } from './helper/helper';
 import Dashboard from './pages/Dashboard';
+import Signup from './pages/Signup';
 
 /** react routes */
 const router = createBrowserRouter([
@@ -35,6 +37,13 @@ const router = createBrowserRouter([
       </CheckUserExist>
     ),
   },
+  {
+    path:'/Signup',
+    element:(
+      <Signup></Signup>
+    )
+  }
+  
 ]);
 
 function App() {
