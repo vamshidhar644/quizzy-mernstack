@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Questions from './Questions';
 
-
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion';
 import { PushAnswer } from '../hooks/setResult';
 
@@ -50,31 +49,32 @@ export default function Quiz() {
   }
 
   return (
-    <div className='container'>
-        <h3 className='title text-light'>Quizzy</h3>
     <div className="container">
-      <h1 className="title text-light">Quiz Application</h1>
+      <h1 className="title text-light">Quizzy</h1>
 
       {/* display questions */}
       <Questions onChecked={onChecked} />
 
-        <div className='grid'>
-            { trace > 0 ? <button className='btn prev' onClick={onPrev} style={{borderRadius:'20px'}}>Prev</button> : <div></div>}
-            <button className='btn next' onClick={onNext} style={{borderRadius:'20px'}}>Next</button>
-        </div>
       <div className="grid">
         {trace > 0 ? (
-          <button className="btn prev" onClick={onPrev}>
+          <button
+            className="btn prev"
+            onClick={onPrev}
+            style={{ borderRadius: '20px' }}
+          >
             Prev
           </button>
         ) : (
           <div></div>
         )}
-        <button className="btn next" onClick={onNext}>
+        <button
+          className="btn next"
+          onClick={onNext}
+          style={{ borderRadius: '20px' }}
+        >
           Next
         </button>
       </div>
-    </div>
     </div>
   );
 }
