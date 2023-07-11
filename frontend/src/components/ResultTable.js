@@ -11,9 +11,9 @@ export default function ResultTable() {
   }, [data]);
 
   return (
-    <div>
-      <table>
-        <thead className="table-header">
+    <div >
+      <table >
+        <thead className="table-header" >
           <tr className="table-row">
             <td>Name</td>
             <td>Attemps</td>

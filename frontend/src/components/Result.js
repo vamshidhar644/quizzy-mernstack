@@ -38,9 +38,9 @@ export default function Result() {
 
   return (
     <div className='container'>
-        <h1 className='title text-light'>Quiz Application</h1>
+        <h1 className='title text-light' style={{borderRadius:'20px'}}>Quiz Application</h1>
 
-        <div className='result flex-center'>
+        <div className='result flex-center' style={{borderRadius:'20px'}}>
             <div className='flex'>
                 <span>Username</span>
                 <span className='bold'>{userId || ""}</span>
@@ -68,10 +68,10 @@ export default function Result() {
         </div>
 
         <div className="start">
-            <Link className='btn' to={'/'} onClick={onRestart}>Restart</Link>
+            <Link className='btn' to={'/'} onClick={onRestart} style={{borderRadius:'20px'}}>Restart</Link>
         </div>
 
-        <div className="container">
+        <div className="container" >
             {/* result table */}
             <ResultTable></ResultTable>
         </div>

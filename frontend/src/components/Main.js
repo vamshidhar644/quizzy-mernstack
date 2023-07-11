@@ -22,7 +22,7 @@ export default function Main() {
         <li>You will be asked 10 questions one after another.</li>
         <li>10 points is awarded for the correct answer.</li>
         <li>
-          Each question has three options. You can choose only one options.
+          Each question has three or four options. You can choose <br></br>only one options.
         </li>
         <li>You can review and change answers before the quiz finish.</li>
         <li>The result will be declared at the end of the quiz.</li>
@@ -34,11 +34,15 @@ export default function Main() {
           className="userid"
           type="text"
           placeholder="Nickname*"
+          style={{ width: '170px',
+          fontSize: '18px',borderRadius: '20px', }}
+          
         />
       </form>
 
       <div className="start">
-        <Link className="btn" to="/quiz" onClick={startQuiz}>
+        <Link className="btn" to="/quiz" onClick={startQuiz} style={{borderRadius:'20px'}}>
+          
           Start Quiz
         </Link>
       </div>
