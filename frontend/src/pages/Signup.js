@@ -108,7 +108,7 @@ const Signup = () => {
               required
               onChange={(e) => setLoginPass(e.target.value)}
             />
-            <a href="#">Forgot password?</a>
+            <p>Forgot password?</p>
             <div className="Signup" value="Signup" onClick={handleLogin}>
               Login
             </div>
