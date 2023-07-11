@@ -1,6 +1,5 @@
 import './styles/App.css';
 
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 /** import components */
@@ -22,7 +21,7 @@ const router = createBrowserRouter([
     element: <Main />,
   },
   {
-    path: '/quiz',
+    path: '/quiz-home/quiz',
     element: (
       <CheckUserExist>
         <Quiz />
@@ -38,12 +37,9 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path:'/Signup',
-    element:(
-      <Signup/>
-    )
-  }
-  
+    path: '/Signup',
+    element: <Signup />,
+  },
 ]);
 
 function App() {

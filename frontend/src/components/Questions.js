@@ -37,7 +37,7 @@ export default function Questions({ onChecked }) {
 
         <ul key={questions?.id}>
             {
-                questions?.options.map((q, i) => (
+                questions?.options.map((qstn, i) => (
                     <li key={i}>
                         <input 
                             type="radio"
@@ -47,7 +47,7 @@ export default function Questions({ onChecked }) {
                             onChange={() => onSelect(i)}
                         />
 
-                        <label className='text-primary' htmlFor={`q${i}-option`}>{q}</label>
+                        <label className='text-primary' htmlFor={`q${i}-option`}>{qstn}</label>
                         <div className={`check ${result[trace] == i ? 'checked' : ''}`}></div>
                     </li>
                 ))

@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <div>
+      <Link to="/quiz-home">Open Quiz</Link>
+      <button>Logout</button>
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

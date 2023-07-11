@@ -29,7 +29,7 @@ export default function Result() {
         username : userId,
         attempts,
         points: earnPoints,
-        achived : flag ? "Passed" : "Failed" });
+        achived : flag ? "Passed" : "Failed" }); 
 
     function onRestart(){
         dispatch(resetAllAction())
