@@ -33,12 +33,12 @@ export default function Main() {
           ref={inputRef}
           className="userid"
           type="text"
-          placeholder="Username*"
+          placeholder="Nickname*"
         />
       </form>
 
       <div className="start">
-        <Link className="btn" to={'quiz'} onClick={startQuiz}>
+        <Link className="btn" to="/quiz" onClick={startQuiz}>
           Start Quiz
         </Link>
       </div>

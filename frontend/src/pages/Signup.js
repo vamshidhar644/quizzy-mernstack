@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import '../styles/Signup.css';
 import { useSignup } from '../hooks/useSignup';
+import { useLogin } from '../hooks/useLogin';
 
 const Signup = () => {
-  const [login, setLogin] = useState(false);
+  const [loginn, setLogin] = useState(false);
   const { signup, signerror } = useSignup();
+  const { login } = useLogin();
 
   const [fullName, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState(null); 
+  const [role, setRole] = useState(null);
+
+  const [loginEmail, setLoginEmail] = useState();
+  const [loginPass, setLoginPass] = useState();
 
   const currentDate = new Date();
   const hours = currentDate.getHours().toString().padStart(2, '0');
@@ -23,15 +28,22 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    console.log(_id, fullName, email, password, role); 
-   
+    console.log(_id, fullName, email, password, role);
+
+    await signup(_id, fullName, email, password, role);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    await login(loginEmail, loginPass);
   };
 
   return (
     <div className="Login-Container">
-      <section className={`wrapper ${login ? 'active' : ''}`}>
+      <section className={`wrapper ${loginn ? 'active' : ''}`}>
         <div className="form signup">
-          <header onClick={() => setLogin(!login)}>Signup</header>
+          <header onClick={() => setLogin(!loginn)}>Signup</header>
           {signerror && <p>{signerror}</p>}
           <form action="#">
             <input
@@ -60,7 +72,7 @@ const Signup = () => {
                   name="role"
                   value="admin"
                   required
-                  onChange={() => setRole(1)} 
+                  onChange={() => setRole(1)}
                 />
                 Admin
               </label>
@@ -70,7 +82,7 @@ const Signup = () => {
                   name="role"
                   value="user"
                   required
-                  onChange={() => setRole(0)} 
+                  onChange={() => setRole(0)}
                 />
                 User
               </label>
@@ -82,12 +94,24 @@ const Signup = () => {
         </div>
 
         <div className="form login">
-          <header onClick={() => setLogin(!login)}>Login</header>
+          <header onClick={() => setLogin(!loginn)}>Login</header>
           <form action="#">
-            <input type="text" placeholder="Email address" required />
-            <input type="password" placeholder="Password" required />
+            <input
+              type="text"
+              placeholder="Email address"
+              required
+              onChange={(e) => setLoginEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              onChange={(e) => setLoginPass(e.target.value)}
+            />
             <a href="#">Forgot password?</a>
-            <input type="submit" value="Login" />
+            <div className="Signup" value="Signup" onClick={handleLogin}>
+              Login
+            </div>
           </form>
         </div>
       </section>

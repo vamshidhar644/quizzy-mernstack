@@ -5,6 +5,7 @@ import { config } from 'dotenv';
 
 import router from './router/route.js';
 import adminRouter from './router/admin.js';
+import userRouter from './router/user.js';
 
 import { mongoose } from 'mongoose';
 
@@ -22,6 +23,7 @@ config();
 /** routes */
 app.use('/api', router); /** apis */
 app.use('/api/admin', adminRouter);
+app.use('/api/user', userRouter);
 
 app.get('/', (req, res) => {
   try {

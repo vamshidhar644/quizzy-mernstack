@@ -1,6 +1,13 @@
 import './styles/App.css';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Navigate,
+  Route,
+  RouterProvider,
+  Routes,
+} from 'react-router-dom';
 
 /** import components */
 import Main from './components/Main';
@@ -10,45 +17,41 @@ import { CheckUserExist } from './helper/helper';
 import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 
-/** react routes */
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Dashboard />,
-  },
-  {
-    path: '/quiz-home',
-    element: <Main />,
-  },
-  {
-    path: '/quiz-home/quiz',
-    element: (
-      <CheckUserExist>
-        <Quiz />
-      </CheckUserExist>
-    ),
-  },
-  {
-    path: '/result',
-    element: (
-      <CheckUserExist>
-        <Result />
-      </CheckUserExist>
-    ),
-  },
-  {
-    path: '/Signup',
-    element: <Signup />,
-  },
-]);
+import { UseAuthContext } from './hooks/useAuthContext';
 
 function App() {
+  const { user } = UseAuthContext();
+  console.log(user);
   return (
-    <>
-      {/* <UserAuthContextProvider> */}
-      <RouterProvider router={router} />
-      {/* </UserAuthContextProvider> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={user ? <Dashboard /> : <Navigate to="/Signup" />}
+        />
+        <Route
+          path="/Signup"
+          element={!user ? <Signup /> : <Navigate to="/" />}
+        />
+        <Route path="/quiz-home" element={<Main />} />
+        <Route
+          path="/quiz"
+          element={
+            <CheckUserExist>
+              <Quiz />
+            </CheckUserExist>
+          }
+        />
+        <Route
+          path="/result"
+          element={
+            <CheckUserExist>
+              <Result />
+            </CheckUserExist>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

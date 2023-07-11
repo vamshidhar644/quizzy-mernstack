@@ -1,7 +1,6 @@
 import { createContext, useReducer, useEffect } from 'react';
-import { useContext } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 export const authReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
@@ -35,16 +34,4 @@ export const AuthContextProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
-
-export const UseAuthContext = () => {
-  const context = useContext(AuthContext);
-
-  if (!context) {
-    throw Error(
-      'useAuthContext must be used inside an WorkoutsContextProvider'
-    );
-  }
-
-  return context;
 };
