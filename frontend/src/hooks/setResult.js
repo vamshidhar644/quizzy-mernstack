@@ -23,7 +23,7 @@ export const usePublishResult = (resultData) => {
     try {
       if (result !== [] && !username) throw new Error("Couldn't get Result");
       await postServerData(
-        `http://localhost:4000/api/result`,
+        `https://quizzy-backend-xg71.onrender.com/api/result`,
         resultData,
         (data) => data
       );

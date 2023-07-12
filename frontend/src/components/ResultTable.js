@@ -5,15 +5,18 @@ export default function ResultTable() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    getServerData(`http://localhost:4000/api/result`, (res) => {
-      setData(res);
-    });
+    getServerData(
+      'https://quizzy-backend-xg71.onrender.com/api/result',
+      (res) => {
+        setData(res);
+      }
+    );
   }, [data]);
 
   return (
-    <div >
-      <table >
-        <thead className="table-header" >
+    <div>
+      <table>
+        <thead className="table-header">
           <tr className="table-row">
             <td>Name</td>
             <td>Attemps</td>

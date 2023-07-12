@@ -21,7 +21,7 @@ export const useFetchQestion = () => {
     (async () => {
       try {
         const [{ questions, answers }] = await getServerData(
-          `http://localhost:4000/api/questions`,
+          `https://quizzy-backend-xg71.onrender.com/api/questions`,
           (data) => data
         );
 
